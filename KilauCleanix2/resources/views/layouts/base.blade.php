@@ -129,14 +129,19 @@
                                 <li class="login-form"> <a href="#">My Account (Admin)</a>
                                     <ul class="drop-down one-column hover-fade">
                                         <li><a href="{{route('admin.dashboard')}}">Dashboard</a></li>
+                                        <li><a href="{{route('user.profile')}}">My Profile</a></li>
                                         <li><a href="{{route('admin.service_categories')}}">Service Categories</a></li>
+                                        <li><a href="{{route('admin.all_services')}}">All Services</a></li>
+                                        <li><a href="{{route('user.changepassword')}}">Change Password</a></li>                                   
                                         <li><a href="{{route('logout')}}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Logout</a></li>
                                     </ul>
                                 </li>
                             @else
-                            <li class="login-form"> <a href="#">My Account (Customer)</a>
+                            <li class="login-form"> <a href="#">My Account</a>
                                 <ul class="drop-down one-column hover-fade">
                                     <li><a href="{{route('customer.dashboard')}}">Dashboard</a></li>
+                                    <li><a href="{{route('user.profile')}}">My Profile</a></li>
+                                    <li><a href="{{route('user.changepassword')}}">Change Password</a></li>                                   
                                     <li><a href="{{route('logout')}}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Logout</a></li>
                                 </ul>
                             </li>

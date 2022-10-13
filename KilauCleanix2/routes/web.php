@@ -4,10 +4,14 @@ use App\Http\Livewire\Admin\AdminAddServiceCategoryComponent;
 use App\Http\Livewire\Admin\AdminDashboardComponent;
 use App\Http\Livewire\Admin\AdminEditServiceCategoryComponent;
 use App\Http\Livewire\Admin\AdminServiceCategoryComponent;
+use App\Http\Livewire\Admin\AdminServiceComponent;
 use App\Http\Livewire\Customer\CustomerDashboardComponent;
 use App\Http\Livewire\KilauCleanix2;
 use App\Http\Livewire\ServiceCategoriesComponent;
+use App\Http\Livewire\User\UserChangePasswordComponent;
+use App\Http\Livewire\User\UserEditProfileComponent;
 use App\Http\Livewire\User\UserProfileComponent;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -25,6 +29,8 @@ use Illuminate\Support\Facades\Route;
 //     return view('welcome');
 // });
 
+//Auth::routes(['verify'=> true]);
+
 Route::get('/',KilauCleanix2::class)->name('home');
 Route::get('/service-categories',ServiceCategoriesComponent::class)->name('home.service_categories');
 
@@ -36,6 +42,8 @@ Route::middleware([
 ])->group(function () {
     Route::get('/user/profile',UserProfileComponent::class)->name('user.profile');
     Route::get('/customer/dashboard',CustomerDashboardComponent::class)->name('customer.dashboard');
+    Route::get('/user/profile/edit',UserEditProfileComponent::class)->name('user.editprofile');
+    Route::get('/user/change-password',UserChangePasswordComponent::class)->name('user.changepassword');
 });
 
 
@@ -49,4 +57,5 @@ Route::middleware([
     Route::get('/admin/service-categories', AdminServiceCategoryComponent::class)->name('admin.service_categories');
     Route::get('/admin/service-category/add', AdminAddServiceCategoryComponent::class)->name('admin.add_service_category');
     Route::get('/admin/service-category/edit/{category_id}',AdminEditServiceCategoryComponent::class)->name('admin.edit_service_category');
+    Route::get('/admin/all-services',AdminServiceComponent::class)->name('admin.all_services');
 });
