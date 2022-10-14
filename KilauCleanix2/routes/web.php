@@ -1,10 +1,13 @@
 <?php
 
+use App\Http\Livewire\AboutUsComponent;
 use App\Http\Livewire\Admin\AdminAddServiceCategoryComponent;
+use App\Http\Livewire\Admin\AdminContactComponent;
 use App\Http\Livewire\Admin\AdminDashboardComponent;
 use App\Http\Livewire\Admin\AdminEditServiceCategoryComponent;
 use App\Http\Livewire\Admin\AdminServiceCategoryComponent;
 use App\Http\Livewire\Admin\AdminServiceComponent;
+use App\Http\Livewire\ContactComponent;
 use App\Http\Livewire\Customer\CustomerDashboardComponent;
 use App\Http\Livewire\KilauCleanix2;
 use App\Http\Livewire\ServiceCategoriesComponent;
@@ -33,7 +36,8 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/',KilauCleanix2::class)->name('home');
 Route::get('/service-categories',ServiceCategoriesComponent::class)->name('home.service_categories');
-
+Route::get('/contact-us',ContactComponent::class)->name('home.contact');
+Route::get('/about-us',AboutUsComponent::class)->name('home.about_us');
 //For Customer
 Route::middleware([
     'auth:sanctum',
@@ -58,4 +62,5 @@ Route::middleware([
     Route::get('/admin/service-category/add', AdminAddServiceCategoryComponent::class)->name('admin.add_service_category');
     Route::get('/admin/service-category/edit/{category_id}',AdminEditServiceCategoryComponent::class)->name('admin.edit_service_category');
     Route::get('/admin/all-services',AdminServiceComponent::class)->name('admin.all_services');
+    Route::get('/admin/contacts',AdminContactComponent::class)->name('admin.contacts');
 });
